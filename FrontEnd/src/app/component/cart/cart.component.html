@@ -1,0 +1,59 @@
+<app-header></app-header>
+    <main>
+        <div class="basket">
+            <div class="basket-labels">
+                <ul>
+                    <li class="item item-heading">Item</li>
+                    <li class="quantity">Quantity</li>
+                    <li class="price">Price</li>
+                 
+                </ul>
+            </div>
+            <div>
+            <div class="basket-product" *ngFor="let item of cartItem">
+                <div class="item">
+                    <div class="product-image">
+                        <img src="../../assets/{{item.image}}" alt="Placholder Image 2"
+                            class="product-frame">
+                    </div>
+                    <div class="product-details">
+                        <h1><strong><span class="item-quantity">1</span> X {{item.productname}}</strong></h1>
+                        <p><strong>{{item.productname}}</strong></p>
+                        <p>Product Code - {{item.id}}</p>
+                    </div>
+                </div>
+             
+                <div class="remove">
+                    <button (click)="remove(item.id)">Remove</button>
+                </div>
+                <div>{{item.price}}</div>
+             
+            </div>
+           </div>
+
+        </div>
+      
+
+        <aside>
+            <div class="summary" style="width: auto;">
+                <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
+                <div class="summary-subtotal">
+                    <div class="subtotal-title">Subtotal</div>
+                    <div class="subtotal-value final-value" id="basket-subtotal">${{totalamount}}</div>
+                   
+                    <div class="summary-promo hide">
+                        <div class="promo-title">Promotion</div>
+                        <div class="promo-value final-value" id="basket-promo"></div>
+                    </div>
+                </div>
+
+                <div class="summary-total">
+                    <div class="total-title">Total</div>
+                    <div class="total-value" id="basket-total">${{totalamount}}</div>
+                </div>
+                <div class="summary-checkout">
+                    <button class="checkout-cta" routerLink="/order-booking">Go to Checkout</button>
+                </div>
+            </div>
+        </aside>
+    </main>

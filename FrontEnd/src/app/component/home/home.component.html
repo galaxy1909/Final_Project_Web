@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<div class="section">
+    <div class="container">
+
+        <div class="row" id="latest-products">
+            <div class="col-3 col-md-6 col-sm-12" *ngFor="let item of product">
+                <div class="product-card">
+                    <div class="product-card-img" routerLink="/vdetail/{{item.id}}">
+                        <img class="productimg" src="../../assets/{{item.image}}" alt="">
+                        <img class="productimg" src="../../assets/{{item.image}}" alt="">
+                    </div>
+                    <div class="product-card-info">
+                        <div class="product-btn">
+                            <button class="btn-flat btn-hover btn-shop-now" routerLink="/vdetail/{{item.id}}">shop now</button>
+                            <button class="btn-flat btn-hover btn-cart-add" (click)="addCart(item)">
+                                <i class='bx bxs-cart-add'></i>
+                            </button>
+                            <button class="btn-flat btn-hover btn-cart-add">
+                                <i class='bx bxs-heart'></i>
+                            </button>
+                        </div>
+                        <div class="product-card-name">
+                            {{item.name}}
+                        </div>
+                        <div class="product-card-price">
+                            <span class="curr-price">${{item.price}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

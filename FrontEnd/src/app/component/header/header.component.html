@@ -1,0 +1,53 @@
+<header>
+    <div class="mobile-menu bg-second">
+        <a routerLink="/" class="mb-logo">Web Project</a>
+        <span class="mb-menu-toggle" id="mb-menu-toggle" (click)="toggle()">
+            <i class='bx bx-menu'></i>
+        </span>
+    </div>
+
+
+    <div class="header-wrapper" id="header-wrapper">
+        <span class="mb-menu-toggle mb-menu-close" id="mb-menu-close" (click)="closetoggle()">
+            <i class='bx bx-x'></i>
+        </span>
+
+        <div class="bg-second">
+            <div class="top-header container">
+            </div>
+        </div>
+
+
+        <div class="bg-main">
+            <div class="mid-header container">
+                <a class="logo" routerLink="/">Web Project</a>
+                <div class="search">
+                    <input type="text" placeholder="Search">
+                    <i class='bx bx-search-alt'></i>
+                </div>
+                <ul class="user-menu">
+                    <li routerLink="/cart"><a class="icon-button">
+                            <i class="bx bx-cart" ></i>
+                            <span class="icon-button__badge">{{totalCartItem}}</span>
+                        </a></li>
+                </ul>
+
+                <a routerLink="/login"><button class="button-54">Login Now</button></a>
+
+            </div>
+        </div>
+
+
+        <div class="bg-second">
+            <div class="bottom-header container">
+                <ul class="main-menu">
+                    <li><a routerLink="/">home</a></li>
+                    <li><a routerLink="cart">Cart</a></li>
+                    <li><a routerLink="/">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</header>
