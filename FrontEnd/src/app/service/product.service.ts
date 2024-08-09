@@ -12,4 +12,9 @@ export class ProductService {
   getAllProduct(){
     return this.http.get("http://localhost:3000/product");
   }
+
+
+  deleteProduct(id:any){
+    return this.http.delete("http://localhost:3000/product/"+id);
+  }
 }

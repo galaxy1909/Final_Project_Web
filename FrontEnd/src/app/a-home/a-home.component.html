@@ -21,17 +21,9 @@
         <div class="bg-main">
             <div class="mid-header container">
                 <a class="logo" routerLink="/">Web Project</a>
-                <div class="search">
-                    <input type="text" placeholder="Search">
-                    <i class='bx bx-search-alt'></i>
-                </div>
-                <ul class="user-menu">
-                    <li routerLink="/cart"><a class="icon-button">
-                            <i class="bx bx-cart" ></i>
-                        </a></li>
-                </ul>
+          
 
-                <a routerLink="/login"><button class="button-54">Login Now</button></a>
+                <a routerLink="/login"><button class="button-54">Logout</button></a>
 
             </div>
         </div>
@@ -40,9 +32,8 @@
         <div class="bg-second">
             <div class="bottom-header container">
                 <ul class="main-menu">
-                    <li><a routerLink="/">home</a></li>
-                    <li><a routerLink="cart">Cart</a></li>
-                    <li><a routerLink="/">Contact Us</a></li>
+                    <li><a routerLink="/ahome">home</a></li>
+                    <li><a routerLink="/aproduct">Add Product</a></li>
                 </ul>
             </div>
         </div>
@@ -50,3 +41,24 @@
     </div>
 
 </header>
+
+<table>
+    <tr>
+      <th>Product ID</th>
+      <th>Product Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let item of product">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.desc}}</td>
+      <td>CA$ {{item.price}}</td>
+      <td>{{item.stock}}</td>
+        <td>
+            <button class="button-54" (click)="deleteProduct(item.id)">Delete</button>
+            <button class="button-54">Edit</button>
+    </tr>
+    <tr>

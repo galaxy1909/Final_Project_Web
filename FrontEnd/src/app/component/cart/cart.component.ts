@@ -12,18 +12,18 @@ export class CartComponent implements OnInit {
   constructor() { }
 
   totalamount = 0;
+  subtotal = 0;
   cartItem:any;
-  cartItemToArray:any;
 
   ngOnInit(): void {
-    this.getCartItem();
-    this.updateCartBadge();
+    this.getCart();
     this.getTotalAmount();
   }
 
-  getCartItem(){
-    this.cartItem =  JSON.parse(localStorage.getItem('cart') || '{}');
-    }
+  getCart(){
+    this.cartItem = JSON.parse(localStorage.getItem('cart') as string) ?? [];
+    console.log(this.cartItem);
+  }
 
 
   remove(id:any){
@@ -33,7 +33,7 @@ export class CartComponent implements OnInit {
       if(cart[item].id == id){
         cart.splice(item,1);
         localStorage.setItem('cart',JSON.stringify(cart));
-        this.getCartItem();
+        this.getCart();
         this.getTotalAmount();
         this.ChildComponent.getCartItem();
       }
@@ -41,16 +41,17 @@ export class CartComponent implements OnInit {
   }
 
 
-  updateCartBadge(){
-    this.ChildComponent.getCartItem();
-  }
-
 
   getTotalAmount(){
-    this.totalamount = 0;
-    this.cartItem = localStorage.getItem('cart');
-    this.cartItemToArray = JSON.parse(this.cartItem);
-    for(let item in this.cartItemToArray){
-      this.totalamount += this.cartItemToArray[item].price;
-    } }
+    this.subtotal = 0;
+    this.getCart();
+    this.cartItem.forEach((item:any) => {
+      this.subtotal += item.price;
+    });
+
+    var tax = this.subtotal * 0.13;
+    this.totalamount = this.subtotal + tax;
+     }
+
+
 }

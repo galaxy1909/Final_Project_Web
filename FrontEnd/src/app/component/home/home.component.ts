@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     this.cartItem =  localStorage.getItem("cart");
     
     const cart = JSON.parse(this.cartItem);
-
+    
     for(let item in cart){
       if(cart[item].id == product.id){
         alert("Product is already in cart");
